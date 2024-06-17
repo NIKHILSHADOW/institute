@@ -11,4 +11,4 @@
 
 #### Use-Case Diagram
 
-![institute](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://github.com/NIKHILSHADOW/institute/blob/master/static/institute.iuml)
+![institute](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/NIKHILSHADOW/institute/master/static/institute.iuml)
