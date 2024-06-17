@@ -1,0 +1,81 @@
+@startuml institute
+
+left to right direction
+
+actor "Student" as student
+actor "Instructor" as instructor
+actor "Mentor" as mentor 
+actor "Teaching Assistant" as ta
+
+rectangle institute {
+    
+    usecase "join class" as joinclass
+    usecase "apply for job" as apply
+    usecase "raise a TA request" as raise
+    usecase "book a mentor session" as book
+    usecase "update profile" as updateprofile
+    usecase "login" as login
+    usecase "solve assignment" as assignment
+    usecase "join mentor session" as mentorSession
+    usecase "join doubt session" as taSession
+
+    ' extends
+    usecase "join as host" as host
+    usecase "join as audience" as audience
+    usecase "mcq" as mcq
+    usecase "coding assignment" as coding
+
+
+    ' includes
+    usecase "check if eligible" as eligibilty
+    usecase "check if valid user" as validuser
+    usecase "check if mentor available" as mentorAvailability
+    usecase "check if ta available" as taAvailable
+
+
+}
+
+
+' Student
+student --> joinclass
+student --> apply
+student --> raise 
+student --> book
+student --> login
+student --> updateprofile
+student --> assignment
+student --> mentorSession
+student --> taSession
+
+' Instructor
+instructor --> joinclass
+
+' Mentor
+
+mentor --> mentorSession
+
+' TA
+
+ta --> taSession
+
+joinclass <.- host : extends
+joinclass <.-  audience : extends
+
+
+assignment <.- mcq : extends
+ assignment <.- coding : extends
+
+
+apply -.> eligibilty : includes
+
+book -.> mentorAvailability : includes
+
+raise -.> taAvailable : includes
+
+login -.> validuser : includes
+
+updateprofile -.> validuser : includes
+
+
+
+@enduml
